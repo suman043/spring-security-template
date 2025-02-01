@@ -26,12 +26,16 @@ public class StudentController {
 
     @GetMapping("/csrf-token")
     public CsrfToken getCsrfToken(HttpServletRequest httpServletRequest){
-        return (CsrfToken)httpServletRequest.getAttribute("_csrf");
+        //return (CsrfToken)httpServletRequest.getAttribute("_csrf");
+        CsrfToken csrfToken = (CsrfToken) httpServletRequest.getAttribute("_csrf");
+        System.out.println(csrfToken.getToken());
+        return csrfToken;
     }
 
     @PostMapping("/students")
-    public void addStudent(@RequestBody Student student){
+    public Student addStudent(@RequestBody Student student){
         students.add(student);
+        return student;
     }
 
 }
