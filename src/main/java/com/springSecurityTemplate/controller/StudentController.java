@@ -2,6 +2,7 @@ package com.springSecurityTemplate.controller;
 
 import com.springSecurityTemplate.model.Student;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,9 @@ public class StudentController {
             new Student(2, "Saurav","Python")
     ));
 
+
     @GetMapping("/students")
+   // @PreAuthorize("hasRole('USER')")
     public List<Student> getStudents(){
         return students;
     }
@@ -32,7 +35,9 @@ public class StudentController {
         return csrfToken;
     }
 
+
     @PostMapping("/students")
+    //@PreAuthorize("hasRole('ADMIN')")
     public Student addStudent(@RequestBody Student student){
         students.add(student);
         return student;
