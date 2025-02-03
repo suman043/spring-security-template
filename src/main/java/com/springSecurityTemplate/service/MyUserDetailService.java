@@ -1,6 +1,7 @@
 package com.springSecurityTemplate.service;
 
 import com.springSecurityTemplate.model.User;
+import com.springSecurityTemplate.model.UserPrincipal;
 import com.springSecurityTemplate.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,6 +25,6 @@ public class MyUserDetailService implements UserDetailsService {
         }
 
         //return user;
-        return null;
+        return new UserPrincipal(user);
     }
 }
