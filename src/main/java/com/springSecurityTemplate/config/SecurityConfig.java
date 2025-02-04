@@ -38,7 +38,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(Customizer-> Customizer.anyRequest().authenticated())
+                .authorizeHttpRequests(Customizer-> Customizer
+                        .requestMatchers("/register")
+                        .permitAll()
+                        .anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults())
                 //.sessionManagement(Customizer-> Customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(Customizer.withDefaults());
