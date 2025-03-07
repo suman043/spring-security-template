@@ -20,5 +20,4 @@ public class UserService {
         System.out.println(user.getPassword());
         return userRepository.save(user);
     }
-
 }
