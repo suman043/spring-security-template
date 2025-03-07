@@ -27,13 +27,13 @@ public class StudentController {
         return students;
     }
 
-    @GetMapping("/csrf-token")
-    public CsrfToken getCsrfToken(HttpServletRequest httpServletRequest){
-        //return (CsrfToken)httpServletRequest.getAttribute("_csrf");
-        CsrfToken csrfToken = (CsrfToken) httpServletRequest.getAttribute("_csrf");
-        System.out.println(csrfToken.getToken());
-        return csrfToken;
-    }
+//    @GetMapping("/csrf-token")
+//    public CsrfToken getCsrfToken(HttpServletRequest httpServletRequest){
+//        //return (CsrfToken)httpServletRequest.getAttribute("_csrf");
+//        CsrfToken csrfToken = (CsrfToken) httpServletRequest.getAttribute("_csrf");
+//        System.out.println(csrfToken.getToken());
+//        return csrfToken;
+//    }
 
 
     @PostMapping("/students")
